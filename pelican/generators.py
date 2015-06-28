@@ -248,6 +248,7 @@ class TemplatePagesGenerator(Generator):
             try:
                 template = self.env.get_template(source)
                 rurls = self.settings['RELATIVE_URLS']
+                self.context["template_page_dest"] = dest
                 writer.write_file(dest, template, self.context, rurls,
                                   override_output=True)
             finally:
